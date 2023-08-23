@@ -1,0 +1,19 @@
+﻿<Window x:Class="NotepadClone.FindReplaceDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotepadClone"
+        mc:Ignorable="d"
+        Title="FindReplaceDialog" Height="150" Width="300">
+    <Grid>
+        <Label Content="Find:" VerticalAlignment="Center" Margin="10"/>
+        <TextBox x:Name="txtSearch" VerticalAlignment="Center" Margin="50,10,10,10" Width="150"/>
+
+        <Label Content="Replace:" VerticalAlignment="Center" Margin="10,40,0,10"/>
+        <TextBox x:Name="txtReplace" VerticalAlignment="Center" Margin="50,40,10,10" Width="150"/>
+
+        <Button Content="OK" VerticalAlignment="Center" HorizontalAlignment="Right" Width="75" Margin="0,80,10,10" Click="btnOK_Click"/>
+        <Button Content="Cancel" VerticalAlignment="Center" HorizontalAlignment="Right" Width="75" Margin="0,80,90,10" Click="btnCancel_Click"/>
+    </Grid>
+</Window>
