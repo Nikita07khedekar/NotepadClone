@@ -18,13 +18,18 @@ namespace NotepadClone.Models
         public string FilePath
         {
             get { return _filePath; }
-            set { _filePath = value; }
+            set
+            {
+                _filePath = value;
+                OnPropertyChanged(ref _filePath,value); 
+            }
         }
         private string _fileName;
         public string FileName
-        {
-            get { return _fileName; }
-            set { OnPropertyChanged(ref _text, value); }
+        { 
+            get { return _fileName==null || _fileName==""? "Untitled Notepad Clone - Nikita" : _fileName + " Notepad Clone - Nikita "; }
+            set {
+                OnPropertyChanged(ref _fileName , value: value); }
         }
 
         public bool isEmpty

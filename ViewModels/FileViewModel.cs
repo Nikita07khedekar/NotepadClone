@@ -53,6 +53,7 @@ namespace NotepadClone.ViewModels
             {
                 Document.Text = File.ReadAllText(openFileDialog.FileName);  
                 Document.FilePath = openFileDialog.FileName;
+                Document.FileName = openFileDialog.SafeFileName;
             }
         }
 

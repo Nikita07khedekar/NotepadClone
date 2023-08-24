@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
+using System.Windows.Media.Imaging;
 
 namespace NotepadClone
 {
@@ -10,6 +13,9 @@ namespace NotepadClone
     {
         public MainWindow()
         {
+            Uri iconUri = new Uri("pack://application:,,,/download.ico", UriKind.RelativeOrAbsolute);
+
+            this.Icon = BitmapFrame.Create(iconUri);
             InitializeComponent();
         }
 
@@ -18,15 +24,27 @@ namespace NotepadClone
             new MainWindow().Show();
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void Print_Click(object sender, RoutedEventArgs e)
         {
-            PrintDialog printDialog = new PrintDialog();
+            System.Windows.Controls.PrintDialog printDialog = new System.Windows.Controls.PrintDialog();
             printDialog.ShowDialog();
         }
 
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+        private void Format_Click(object sender, RoutedEventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+            if(fontDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                txtBox.FontFamily = new System.Windows.Media.FontFamily(fontDialog.Font.Name);
+                txtBox.FontSize = fontDialog.Font.Size * 90.0 / 72.0;
+                txtBox.FontWeight = fontDialog.Font.Bold ? FontWeights.Bold : FontWeights.Regular;
+                txtBox.FontStyle = fontDialog.Font.Italic ? FontStyles.Italic : FontStyles.Normal;
+
+            }
         }
 
     }
